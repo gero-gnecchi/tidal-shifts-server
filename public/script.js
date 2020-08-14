@@ -1,8 +1,7 @@
  let X = document.getElementById('X');
- //let Y = document.getElementById('Y');
- //let Z = document.getElementById('Z');
+ let Y = document.getElementById('Y');
+ let Z = document.getElementById('Z');
  let socket;
- const util = require('util')
 
 
  //socket = io.connect('http://the-tides-pendulum.herokuapp.com');
@@ -11,17 +10,14 @@ socket = io.connect('localhost:80');
  
    socket.on('message',
    function(msg){
-     //console.log('Tidal Shifts');
+     console.log('Tidal Shifts');
 
-     console.log(util.inspect(myObject, { x: msg.X, y: msg.Y, z: msg.Z }));
-     X.innerHTML = util;
-
-    /* let x = msg.X;
+    let x = msg.X;
      X.innerHTML = x;
      let y = msg.Y;
      Y.innerHTML = y;
      let z = msg.Z;
-     Z.innerHTML = z;*/
+     Z.innerHTML = z;
    });
 
 
