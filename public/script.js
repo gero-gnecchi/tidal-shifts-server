@@ -3,7 +3,7 @@
  let Z = document.getElementById('Z');
  let socket;
 
- socket = io.connect('http://the-tides-pendulum.herokuapp.com');
+ socket = io.connect('http://the-tides-pendulum.herokuapp.com:3005');
  //socket = io.connect('localhost:3005');
 //socket = io();
 
@@ -12,7 +12,7 @@
      console.log('Tidal Shifts');
      let x = msg.X;
      X.innerHTML = x;
-     let y = msg.Y;
+     let y = msg.Y;é
      Y.innerHTML = y;
      let z = msg.Z;
      Z.innerHTML = z;
