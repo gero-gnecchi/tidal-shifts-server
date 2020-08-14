@@ -5,7 +5,7 @@
 
  //socket = io.connect('https://the-tides-pendulum.herokuapp.com/': 3005);
  // socket = io.connect(localhost:3000);
-socket = io('https://the-tides-pendulum.herokuapp.com/');
+socket = io();
 
    socket.on('message',
    function(msg){
