@@ -4,7 +4,7 @@
  let socket;
 
  //socket = io.connect('http://the-tides-pendulum.herokuapp.com');
- socket = io.connect('localhost:3000');
+ socket = io.connect('localhost:3005');
 //socket = io();
 
    socket.on('message',
