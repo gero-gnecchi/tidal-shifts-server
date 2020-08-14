@@ -7,7 +7,7 @@ const app = express();
 //var http = require('http').createServer(app);
 // require the socket.io and bind it to a port
 
-const server = app.listen(process.env.PORT || 3005,listen);
+const server = app.listen(process.env.PORT || 80,listen);
 
 function listen(){
 
