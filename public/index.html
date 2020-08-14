@@ -10,10 +10,21 @@
          <!-- sockets.io -->
   <script type="text/javascript" 
   src="https://cdn.socket.io/socket.io-1.4.5.js">
+
+var Socket;
+    function init() {
+      Socket = new WebSocket('ws://' + window.location.hostname + 'localhost:3005');
+      Socket.onmessage = function(event){
+        // receive the color data from the server
+        var data = JSON.parse(event.data);
+        console.log(data);//writing the data 
+      }
+    }  
+
 </script>
 
     </head>
-    <body>
+    <body onload="javascript:init()">
         <p id="X">
             hh</p>
             <p id="Y">

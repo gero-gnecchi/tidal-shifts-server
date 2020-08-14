@@ -12,7 +12,7 @@ socket = io.connect('localhost:3005');
      console.log('Tidal Shifts');
      let x = msg.X;
      X.innerHTML = x;
-     let y = msg.Y;é
+     let y = msg.Y;
      Y.innerHTML = y;
      let z = msg.Z;
      Z.innerHTML = z;
