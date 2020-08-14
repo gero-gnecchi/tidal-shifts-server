@@ -1,41 +1,32 @@
- let X = document.getElementById('X');
- let Y = document.getElementById('Y');
- let Z = document.getElementById('Z');
- let socket;
+let elX = document.getElementById("X");
+let elY = document.getElementById("Y");
+let elZ = document.getElementById("Z");
 
- socket = io.connect('https://the-tides-pendulum.herokuapp.com/');
- // socket = io.connect(localhost:3000);
-//socket = io();
+const socket = io("localhost:3005");
+// const socket = io("ws://the-tides-pendulum.herokuapp.com");
 
-   socket.on('message',
-   function(msg){
-     console.log('Tidal Shifts');
-     let x = msg.X;
-     X.innerHTML = x;
-     let y = msg.Y;
-     Y.innerHTML = y;
-     let z = msg.Z;
-     Z.innerHTML = z;
-   });
+socket.on("connect", () => {
+  socket.send("Hello from client!");
+});
 
+socket.on("test", (data) => {
+  console.log("received test msg on client", data);
+});
 
+socket.on("data", (x, y, z) => {
+  console.log("recieved gyro on client", x, y, z);
+  elX.innerHTML = x;
+  elY.innerHTML = y;
+  elZ.innerHTML = z;
+});
 
+const btn = document.getElementById("btn");
 
-
-////////////////////////////////////////////////////////// only send, emulating arduino///
- /*b.onclick = function() {
-   console.log('cloc');
-   sendMessage();
-   // let msg = {
-   //   val: 3
-   // };
-   // socket.emit('message', msg)
- }
-
-////SEND FUNCTION takes and osc adress and single value
-function sendMessage() {
-  let msg = {
-    val: 3
-  };
-  socket.emit('message', msg)
-}*/
+btn.onclick = function () {
+  console.log("button clicked - sending random gyro to server");
+  const x = Math.random();
+  const y = Math.random();
+  const z = Math.random();
+  socket.emit("gyro", x, y, z);
+  socket.send("gyro", x, y, z);
+};
