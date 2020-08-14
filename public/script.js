@@ -3,7 +3,7 @@
  let Z = document.getElementById('Z');
  let socket;
 
- socket = io.connect('http://the-tides-pendulum.herokuapp.com:3005');
+ socket = io.connect('http://the-tides-pendulum.herokuapp.com');
  //socket = io.connect('localhost:3005');
 //socket = io();
 
