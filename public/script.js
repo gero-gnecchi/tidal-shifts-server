@@ -2,8 +2,8 @@ let elX = document.getElementById("X");
 let elY = document.getElementById("Y");
 let elZ = document.getElementById("Z");
 
-//const socket = io("localhost:3005");
-const socket = io("ws://the-tides-pendulum.herokuapp.com");
+const socket = io("localhost:3005");
+//const socket = io("ws://the-tides-pendulum.herokuapp.com");
 
 socket.on("connect", () => {
   socket.send("Hello from client!");
@@ -24,9 +24,12 @@ const btn = document.getElementById("btn");
 
 btn.onclick = function () {
   console.log("button clicked - sending random gyro to server");
-  const x = Math.random();
+  /*const x = Math.random();
   const y = Math.random();
-  const z = Math.random();
+  const z = Math.random();*/
+  const x = msg.X;
+  const y = msg.Y;
+  const z = msg.Z;
   socket.emit("gyro", x, y, z);
   socket.send("gyro", x, y, z);
 };
