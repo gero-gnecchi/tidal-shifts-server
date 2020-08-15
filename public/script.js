@@ -2,8 +2,8 @@ let elX = document.getElementById("X");
 let elY = document.getElementById("Y");
 let elZ = document.getElementById("Z");
 
-const socket = io("localhost:3005");
-// const socket = io("ws://the-tides-pendulum.herokuapp.com");
+//const socket = io("localhost:3005");
+const socket = io("ws://the-tides-pendulum.herokuapp.com");
 
 socket.on("connect", () => {
   socket.send("Hello from client!");
